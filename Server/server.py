@@ -85,9 +85,17 @@ def GiveNewPort(ip,port):
             Receive = conn.recv(1024)
     
             if Receive:
-
                 [Username] = getre.get(r'b"(.+)"',str(Receive))
 
+                print("%s||%s was join the server!\033[4;31;40m" % (str(addr),Username))
+                log = open("log.txt","at")
+                log.write("["+str(time.time())+"]"+"{"+str(addr)+"}"+"User:"+Username+":"+"Join the server!"+"\n")
+                log.close()
+
+                f = open("./Temps/%s.txt" % Username,"w+")
+                f.close()
+
+				
                 newport = int(random.random() * 10000)
 
                 _thread.start_new_thread(ChildThread,(ip,newport,Username))
@@ -99,14 +107,6 @@ def GiveNewPort(ip,port):
                 conn.close()
 
                 break
-
-        print("%s||%s was join the server!\033[4;31;40m" % (str(addr),Username))
-        log = open("log.txt","at")
-        log.write("["+str(time.time())+"]"+"{"+str(addr)+"}"+"User:"+Username+":"+"Join the server!"+"\n")
-        log.close()
-
-        f = open("./Temps/%s.txt" % Username,"w+")
-        f.close()
 
 
 ip = "0.0.0.0"
