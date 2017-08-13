@@ -1,6 +1,6 @@
 #By Resbi
 
-import socket,os,_thread,getre
+import socket,os,_thread,getre,time
 
 def ding(S):
     while 1:
