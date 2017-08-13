@@ -2,6 +2,11 @@
 
 import socket,os,_thread,getre
 
+def ding(S):
+    while 1:
+        time.sleep(30)
+        S.send("'Keep online.....'".encode(encoding='utf-8'))
+
         #Recv data from server.
 def Recvi(S):
     while 1:
@@ -42,6 +47,8 @@ def client(serverip,serverport,Username):
     _thread.start_new_thread(Sent,(S,))
 
     _thread.start_new_thread(Recvi,(S,))
+
+    _thread.start_new_thread(ding,(S,))
 
     while 1:
         pass
