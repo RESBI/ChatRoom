@@ -7,7 +7,10 @@ def ding(S):
         time.sleep(30)
         S.send("'Keep online.....'".encode(encoding='utf-8'))
 
+
         #Recv data from server.
+
+wait = """
 def Recvi(S):
     while 1:
         Receive = S.recv(1024)
@@ -20,8 +23,11 @@ def Recvi(S):
 #                pass
             print("|====|"+Receive.decode('utf-8'))
             print("-" * 10)
+#        time.sleep(2)
 
         #Send data to server.
+"""
+
 def Sent(S):
     while 1:
         print("-" * 10)
@@ -29,13 +35,13 @@ def Sent(S):
         if a == "":
             S.send(a.encode(encoding='utf-8'))
             exit()
-        if a == "exit":
+        elif a == "exit":
             S.send("exit".encode(encoding='utf-8'))
             exit()
         else:
             S.send(a.encode(encoding='utf-8'))
 
-        #Client to server with new port.
+        #Client to server with the new port.
 def client(serverip,serverport,Username):
 
     S = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -46,12 +52,17 @@ def client(serverip,serverport,Username):
 
     _thread.start_new_thread(Sent,(S,))
 
-    _thread.start_new_thread(Recvi,(S,))
+#    _thread.start_new_thread(Recvi,(S,))
 
     _thread.start_new_thread(ding,(S,))
 
+    #Recv.
     while 1:
-        pass
+        Receive = S.recv(1024)
+        if Receive:
+            print("|====|"+Receive.decode('utf-8'))
+            print("-" * 10)
+        print("-" * 10)
 
         #Get a new port from server.
 def GetPort(serverip,serverport,Username):
