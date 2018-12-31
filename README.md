@@ -1,7 +1,7 @@
 # ChatRoom
 It is an ChatRoom system.
 
-You can setup an server for a room,and it support "many people".
+You can setup an server for a room,and it support multi-people chating.
 
 # Fixs:
 It can display chinese or other language now if your console support it.
