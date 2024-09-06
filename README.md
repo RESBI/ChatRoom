@@ -1,19 +1,19 @@
 # ChatRoom
-It is an ChatRoom system.
+It is a ChatRoom system.
 
-You can setup an server for a room,and it support multi-people chating.
+You can setup a server for a room,and it supports multi-people chating.
 
 # Fixs:
-It can display chinese or other language now if your console support it.
-Add a crypto system,chat data will safer.
+It can display chinese or other languages now if your console support them.
+Add a encrypt system, chat contents will be safer.
 
 # Bugs:
-Server still high CPU use.
+Server still high CPU useage.
 
 # Todo:
-Add register & login system.
+Adding register & login system.
 
-Fix high CPU use.
+Fix high CPU useage.
 
 More tool.
 
