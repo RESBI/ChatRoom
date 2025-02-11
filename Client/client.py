@@ -37,10 +37,13 @@ def client(serverip,serverport,Username):
     #Recv.
     while 1:
         Receive = S.recv(1024)
+
         if Receive:
-            print("|====|"+CB.dec(Receive.decode('utf-8'),key))
-            print("-" * 10)
-        print("-" * 10)
+            ReceiveDecoded = CB.dec(Receive.decode('utf-8'),key)
+            if not "Keep online....." in ReceiveDecoded:
+                print("|====|"+ReceiveDecoded)
+                print("-" * 10)
+                #print("-" * 10)
 
         #Get a new port from server.
 def GetPort(serverip,serverport,Username):
